@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Feedback</title>
+
+  <!-- 1. jQuery from CDN (HTTPS!) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- 2. Zammad form script — **must** be served over HTTPS, so point at your SSL-enabled domain -->
+  <script id="zammad_form_script"
+          src="https://zammad.yourdomain.com/assets/form/form.js"></script>
+
+  <!-- 3. Initialize the modal on our button -->
+  <script>
+    $(function(){
+      $('#zammad-feedback-form').ZammadForm({
+        messageTitle:    'Feedback Form',
+        messageSubmit:   'Submit',
+        messageThankYou: "Thank you for your inquiry (#%s)! We’ll contact you ASAP.",
+        modal:           true
+      });
+    });
+  </script>
+
+  <style>
+    /* center the button, optional */
+    body{
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <button id="zammad-feedback-form">Give Feedback</button>
+</body>
+</html>
